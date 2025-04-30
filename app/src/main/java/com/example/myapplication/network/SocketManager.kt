@@ -1,6 +1,7 @@
 package com.example.myapplication.network
 
 import android.util.Log
+import com.google.gson.Gson
 import java.io.DataInputStream
 import java.net.Socket
 import java.nio.ByteBuffer
@@ -15,12 +16,11 @@ class SocketManager(
 
     fun connect() {
         socket = Socket(address, port)
-
         Log.d(TAG, "connected: ${socket?.isConnected}")
     }
 
     fun send(request: TestRequest) {
-        val message = "{ request }" // <- request
+        val message = Gson().toJson(request) // <- request
 
         Log.i(TAG, "sending: $message")
 
@@ -46,7 +46,7 @@ class SocketManager(
 
         Log.d(TAG, "received: $message")
 
-        return TestResponse(false) // <- message
+        return Gson().fromJson(message, TestResponse::class.java) // <- message
     }
 
     fun close() {

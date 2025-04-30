@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">My Application</string>
     <string name="send">Отправить</string>>
+    <string name="hello_username">Привет, %1$s!</string>
+    <string name="tell_about_youself">Расскажи о себе.\nЭто необходимо, чтобы подбирать\nпартнёров за столом</string>
+    <string name="gender">Пол</string>
+    <string name="age">Возраст</string>
+    <string name="age_placeholder">- -</string>
+    <string name="next">Продолжить</string>
 </resources>
